@@ -2,7 +2,7 @@ import numpy as np
 
 
 def normalize(v):
-	return v / np.sqrt(np.dot(v, v))
+	return v / np.linalg.norm(v)
 
 
 def tridiag_matrix(alpha, beta):
