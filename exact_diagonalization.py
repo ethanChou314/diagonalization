@@ -20,6 +20,7 @@ def tridiag_matrix(alpha, beta):
         			  on the diagonal and 'beta' on the first sub- and 
         			  super-diagonals.
     """
+    # error checking:
 	if alpha.ndim != 1:
 		raise ValueError("alpha must be a rank 1 array")
 
@@ -30,7 +31,6 @@ def tridiag_matrix(alpha, beta):
 		raise ValueError("dimension mismatch between 'alpha' and 'beta'.")
 
 	n = len(alpha)
-
 	T = np.zeros((n, n))
 
 	for i in range(n):
@@ -58,6 +58,7 @@ def lanczos(A, b):
 	    alpha (1D array[float]): Diagonal elements of the tridiagonal matrix T (length m).
 	    beta (1D array[float]): Off-diagonal elements of T (length m).
 	"""
+
 	# get the size of the matrix:
 	m = len(A)
 
@@ -75,7 +76,7 @@ def lanczos(A, b):
 	Q[:, 0] = normalize(b).flatten()
 	q_im1 = np.zeros((m, 1))  # q0
 	
-	# iteration starts here:
+	# iteration starts:
 	for i in range(m):
 		q_i = Q[:, i].reshape(-1, 1)
 		w = A @ q_i
@@ -101,7 +102,7 @@ def exact_diagonalization(A):
 	(A ~ Q * T * Q.T)
 	
 	Parameters:
-		A (ndarray): Real symmetric matrix to diagonalize (n x n)
+		A (ndarray): Symmetrix/hermitian matrix to diagonalize (n x n)
 	
 	Returns:
 		Q (ndarray): Orthonormal basis of Krylov subspace (n x k)
