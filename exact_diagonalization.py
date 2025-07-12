@@ -34,11 +34,11 @@ def tridiag_matrix(alpha, beta):
 	T = np.zeros((n, n))
 
 	for i in range(n):
-        T[i, i] = alpha[i]
-        if i > 0:  # exclude start
-            T[i, i-1] = beta[i-1]
-        if i < n - 1:  # exclude end
-            T[i, i+1] = beta[i]
+		T[i, i] = alpha[i]
+		if i > 0:  # exclude start
+			T[i, i-1] = beta[i-1]
+		if i < n - 1:  # exclude end
+			T[i, i+1] = beta[i]
 
 	return T
 
