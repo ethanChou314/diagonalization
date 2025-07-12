@@ -7,8 +7,19 @@ def normalize(v):
 
 def tridiag_matrix(alpha, beta):
 	"""
-	
-	"""
+    Reconstructs a real symmetric tridiagonal matrix T from diagonal 
+    and off-diagonal components.
+
+    Parameters:
+        alpha (1D array): Diagonal elements of the tridiagonal matrix (length n).
+        beta  (1D array): Off-diagonal elements (length n), where beta[i] 
+        				  corresponds to the entries at positions [i+1, i] and [i, i+1].
+
+    Returns:
+        T (2D array): Symmetric tridiagonal matrix of shape (n, n) with 'alpha' 
+        			  on the diagonal and 'beta' on the first sub- and 
+        			  super-diagonals.
+    """
 	if alpha.ndim != 1:
 		raise ValueError("alpha must be a rank 1 array")
 
